@@ -1,0 +1,91 @@
+# Constraints for 'parallel_flash_memory_uart_programmer'.
+#
+# Revision C of the Spartan-3E Starter Kit.
+#
+# Ken Chapman - Xilinx Ltd - 28th March 2006
+#
+#
+# Period constraint for 50MHz operation
+#
+NET "clk" PERIOD = 20.0ns HIGH 50%;
+#
+#
+# soldered 50MHz Clock.
+# 
+NET "clk" LOC = "C9" | IOSTANDARD = LVTTL;
+#
+#
+#
+# UART connections
+#
+NET "tx_female" LOC = "M14" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "rx_female" LOC = "R7"  | IOSTANDARD = LVTTL;
+#
+#
+# Strata Flash 
+# 128MBit = 16,777,216 bytes requiring 24 address bits.
+#
+NET "strataflash_oe"    LOC = "C18" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_ce"    LOC = "D16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_we"    LOC = "D17" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_byte"  LOC = "C17" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_sts"   LOC = "B18" | IOSTANDARD = LVCMOS33 | PULLUP;
+#
+NET "strataflash_a<0>"  LOC = "H17" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<1>"  LOC = "J13" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<2>"  LOC = "J12" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<3>"  LOC = "J14" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<4>"  LOC = "J15" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<5>"  LOC = "J16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<6>"  LOC = "J17" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<7>"  LOC = "K14" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<8>"  LOC = "K15" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<9>"  LOC = "K12" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<10>" LOC = "K13" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<11>" LOC = "L15" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<12>" LOC = "L16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<13>" LOC = "T18" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<14>" LOC = "R18" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<15>" LOC = "T17" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<16>" LOC = "U18" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<17>" LOC = "T16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<18>" LOC = "U15" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<19>" LOC = "V15" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<20>" LOC = "T12" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<21>" LOC = "V13" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<22>" LOC = "V12" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_a<23>" LOC = "N11" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+#
+NET "strataflash_d<0>"  LOC = "N10" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<1>"  LOC = "P10" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<2>"  LOC = "R10" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<3>"  LOC = "V9"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<4>"  LOC = "U9"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<5>"  LOC = "R9"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<6>"  LOC = "M9"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+NET "strataflash_d<7>"  LOC = "N9"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 4;
+#
+#
+# LCD display
+# (Disable LCD display to ensure no contention with StratFlash memory). 
+#
+NET "lcd_rw"   LOC = "L17" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "lcd_e"    LOC = "M18" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#
+#
+# SPI devices 
+# (Disable to prevent contention with StratFlash memory data bit0). 
+#
+NET "spi_rom_cs"   LOC = "U3"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "spi_adc_conv" LOC = "P11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "spi_dac_cs"   LOC = "N8"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#
+#
+# Platform Flash memory
+# (Disable to prevent contention with StratFlash memory data bit0). 
+#
+NET "platformflash_oe" LOC = "T3" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#
+# End of File
+#
+

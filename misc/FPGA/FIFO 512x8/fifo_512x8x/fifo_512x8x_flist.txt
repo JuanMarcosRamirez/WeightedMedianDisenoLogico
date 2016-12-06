@@ -1,0 +1,10 @@
+# Output products list for <fifo_512x8x>
+fifo_512x8x.asy
+fifo_512x8x.ngc
+fifo_512x8x.sym
+fifo_512x8x.vhd
+fifo_512x8x.vho
+fifo_512x8x.xco
+fifo_512x8x_fifo_generator_v3_3_xst_1_vhdl.prj
+fifo_512x8x_flist.txt
+fifo_512x8x_xmdf.tcl
